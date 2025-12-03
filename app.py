@@ -21,6 +21,11 @@ if not os.path.exists(UPLOAD_FOLDER):
 # Load Model
 # We load it globally so we don't reload it on every request
 try:
+    if os.path.exists('models'):
+        print(f"Models directory content: {os.listdir('models')}")
+    else:
+        print("Models directory not found!")
+
     model = load_model(MODEL_PATH)
     print("Model loaded successfully.")
 except Exception as e:
