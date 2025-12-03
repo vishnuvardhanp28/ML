@@ -117,9 +117,9 @@ def index():
             else:
                 prediction = "Model not loaded"
                 
-            return render_template('index.html', prediction=prediction, image_path=filepath)
+            return render_template('index.html', prediction=prediction, filename=filename)
     
-    return render_template('index.html', prediction=None, image_path=None)
+    return render_template('index.html', prediction=None, filename=None)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8080))

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -20,15 +22,16 @@
                     <div class="file-drop-area" id="drop-area">
                         <span class="fake-btn">Choose Image</span>
                         <span class="file-msg">or drag and drop here</span>
-                        <input class="file-input" type="file" name="file" accept="image/*" required onchange="document.getElementById('upload-form').submit()">
+                        <input class="file-input" type="file" name="file" accept="image/*" required
+                            onchange="document.getElementById('upload-form').submit()">
                     </div>
                 </form>
             </div>
 
-            {% if image_path %}
+            {% if filename %}
             <div class="result-section">
                 <div class="image-preview">
-                    <img src="{{ image_path }}" alt="Uploaded Image">
+                    <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
                 </div>
                 <div class="prediction-box">
                     <h2>Prediction</h2>
@@ -44,4 +47,5 @@
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>
