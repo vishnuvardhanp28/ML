@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Sign Recognition AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Traffic Sign <span class="highlight">Recognition</span></h1>
+            <p>AI-Powered Classification System</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <form action="/" method="post" enctype="multipart/form-data" id="upload-form">
+                    <div class="file-drop-area" id="drop-area">
+                        <span class="fake-btn">Choose Image</span>
+                        <span class="file-msg">or drag and drop here</span>
+                        <input class="file-input" type="file" name="file" accept="image/*" required onchange="document.getElementById('upload-form').submit()">
+                    </div>
+                </form>
+            </div>
+
+            {% if image_path %}
+            <div class="result-section">
+                <div class="image-preview">
+                    <img src="{{ image_path }}" alt="Uploaded Image">
+                </div>
+                <div class="prediction-box">
+                    <h2>Prediction</h2>
+                    <div class="prediction-result">{{ prediction }}</div>
+                </div>
+            </div>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>B.Tech CSE Final Year Project</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
